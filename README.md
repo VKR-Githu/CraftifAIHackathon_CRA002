@@ -10,6 +10,23 @@
 ## One-Line Pitch
 A PipeGen-built, TensorRT-accelerated DeepStream pipeline that turns any existing site CCTV feed into a live hazard-zone intrusion detector, publishing JSON incident logs and MQTT alerts within **8 ms** of a worker stepping into a restricted area.
 
+## Demo Video
+**📹 [Architecture walk-through (2 min)](<<YOUTUBE_UNLISTED_URL_HERE>>)**
+
+This video is an **architecture walk-through**, not a live pipeline run. The live run is scheduled on the venue GPU on hackathon day. The walk-through covers:
+- Problem framing and target user
+- The exact natural-language sentence fed to PipeGen Stage 1
+- The Pipeline IR node graph (see `evidence/pipeline_ir.svg`)
+- Sample JSON incident log and MQTT payload
+- A cited reference to CraftifAI's own tutorial video showing what the Run stage looks like
+
+See `DEMO_VIDEO_SCRIPT.md` for the shot-by-shot narration used in the video.
+
+## Pipeline IR (architecture view)
+![Pipeline IR](evidence/pipeline_ir.svg)
+
+*Rendered from `pipegen_export/pipeline.json`. The zone-overlap-analyzer node (yellow) is the typed change we added to PipeGen's default IR.*
+
 ## The Problem
 Industrial sites (construction, warehouses, manufacturing) already have cameras everywhere — but they are **passive**. Nobody watches every feed live. Workers walk into crane-swing radii, forklift lanes, energised-equipment zones, and confined-space entry areas, and the incident is only noticed after it happens. OSHA data: struck-by and caught-in/between incidents remain a top-3 cause of construction fatalities, and the majority occur inside a camera's field of view. Existing AI vendor systems cost $30–80/site/month and require a proprietary camera.
 
