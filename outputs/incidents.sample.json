@@ -1,0 +1,8 @@
+[
+  { "ts": "2026-10-18T14:23:11.842Z", "camera": "site-cam-01", "frame": 1287, "event": "person_in_hazard_zone",   "zone": "HAZARD-A_crane_swing", "class": "person", "conf": 0.87, "bbox": [512, 344, 187, 260], "dwell_ms": 0 },
+  { "ts": "2026-10-18T14:23:12.210Z", "camera": "site-cam-01", "frame": 1296, "event": "person_in_hazard_zone",   "zone": "HAZARD-A_crane_swing", "class": "person", "conf": 0.91, "bbox": [518, 349, 182, 258], "dwell_ms": 368 },
+  { "ts": "2026-10-18T14:23:13.044Z", "camera": "site-cam-01", "frame": 1317, "event": "person_exited_hazard_zone","zone": "HAZARD-A_crane_swing", "class": "person", "conf": 0.88, "bbox": [640, 372, 175, 244], "dwell_ms": 1202 },
+  { "ts": "2026-10-18T14:23:18.501Z", "camera": "site-cam-01", "frame": 1453, "event": "person_in_hazard_zone",   "zone": "HAZARD-A_crane_swing", "class": "person", "conf": 0.79, "bbox": [468, 322, 172, 248], "dwell_ms": 0 },
+  { "ts": "2026-10-18T14:23:20.117Z", "camera": "site-cam-01", "frame": 1493, "event": "person_exited_hazard_zone","zone": "HAZARD-A_crane_swing", "class": "person", "conf": 0.82, "bbox": [910, 335, 178, 251], "dwell_ms": 1616 },
+  { "ts": "2026-10-18T14:23:31.902Z", "camera": "site-cam-02", "frame": 1788, "event": "person_in_hazard_zone",   "zone": "HAZARD-A_crane_swing", "class": "person", "conf": 0.68, "bbox": [742, 401, 165, 232], "dwell_ms": 0 }
+]

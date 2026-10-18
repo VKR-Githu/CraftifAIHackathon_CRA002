@@ -1,0 +1,6 @@
+# Placeholder — PNG evidence screenshots will be captured on the venue GPU during the hackathon build and pushed here.
+# Expected files:
+#   pipeline_ir.png              (PipeGen Stage 2)
+#   tensorrt_speed_report.png    (PipeGen Stage 4)
+#   run_output.png               (PipeGen Stage 5, annotated frame with red zone + person box)
+#   mqtt.png                     (mosquitto_sub terminal showing live alerts)

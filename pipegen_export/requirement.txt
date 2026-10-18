@@ -1,0 +1,17 @@
+Detect people in a construction-site video and raise an alert whenever a detected person's bounding box overlaps a predefined hazard zone polygon; log every event as JSON and publish an MQTT alert on topic safety/site-01/hazard-zone.
+
+Track: PipeGen (Track A — Perception)
+Input source: /home/$USER/videos/site_hazard.mp4 (1080p, 25 fps MP4 file)
+Hazard zones (polygon coordinates, image space):
+  HAZARD-A_crane_swing: [[450,300],[900,300],[900,650],[450,650]]
+Detection classes: person only
+Confidence threshold: 0.55
+Model preference: yolov8n-person (from CraftifAI catalog)
+Precision: FP16 TensorRT
+Sinks:
+  - JSON metadata file: outputs/incidents.json (one event per line)
+  - MQTT broker: mqtt://localhost:1883, topic safety/site-01/hazard-zone, QoS 1
+  - Display: on-screen annotated video with red zone polygon + person bounding boxes
+Event semantics:
+  - person_in_hazard_zone (on first frame a bbox overlaps the polygon)
+  - person_exited_hazard_zone (when overlap ends; carries dwell_ms)

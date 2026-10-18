@@ -1,0 +1,46 @@
+{
+  "pipeline_id": "sitense-hazard-zone-v1",
+  "generated_by": "CraftifAI PipeGen v0.5.1 — Stage 2 (Pipeline IR)",
+  "team": "Team Doomsday",
+  "team_code": "2beabae8",
+  "track": "A — PipeGen (Perception)",
+  "graph": {
+    "nodes": [
+      { "id": "n1", "type": "filesrc",       "props": { "location": "/home/$USER/videos/site_hazard.mp4" } },
+      { "id": "n2", "type": "nvuridecodebin", "props": { "drop-on-latency": true } },
+      { "id": "n3", "type": "nvvidconv",      "props": { "width": 640, "height": 352 } },
+      { "id": "n4", "type": "nvinfer",        "props": { "config-file-path": "config_infer_primary.txt", "model": "yolov8n-person", "precision": "FP16" } },
+      { "id": "n5", "type": "nvstreambb",     "props": { "display-bbox": true, "display-text": true, "border-width": 2 } },
+      { "id": "n6", "type": "zone-overlap-analyzer", "props": { "zones": { "HAZARD-A_crane_swing": [[450,300],[900,300],[900,650],[450,650]] }, "min_overlap_iou": 0.05, "min_conf": 0.55 } },
+      { "id": "n7", "type": "json-metadata-sink", "props": { "output-file": "outputs/incidents.json", "one-line-per-event": true } },
+      { "id": "n8", "type": "mqtt-sink",        "props": { "broker": "mqtt://localhost:1883", "topic": "safety/site-01/hazard-zone", "qos": 1 } },
+      { "id": "n9", "type": "fakesink",         "props": { "role": "display", "sync": true } }
+    ],
+    "edges": [
+      ["n1", "n2"], ["n2", "n3"], ["n3", "n4"], ["n4", "n5"], ["n5", "n6"],
+      ["n6", "n7"], ["n6", "n8"], ["n6", "n9"]
+    ]
+  },
+  "compiler": {
+    "stage": "TensorRT",
+    "precision": "FP16",
+    "target_gpu": "NVIDIA RTX 4060 / Jetson Orin Nano 8GB",
+    "engine_file": "models/yolov8n-person_fp16.trt",
+    "batch_size": 1,
+    "expected_metrics": {
+      "throughput_fps": 142,
+      "inference_latency_ms": 6.7,
+      "peak_power_watts": 78,
+      "mAP_at_05_person": 0.62
+    }
+  },
+  "run": {
+    "entrypoint": "bash run.sh",
+    "runtime": "DeepStream 7.0 on JetPack 6 / CUDA 12.2",
+    "artifacts": {
+      "annotated_video": "outputs/site_hazard_out.mp4",
+      "incidents_log": "outputs/incidents.json",
+      "mqtt_topic": "safety/site-01/hazard-zone"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+# Qoder IDE internals
+.qoder/
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Original problem statement (referenced doc, not project artifact)
+Embedded SF_ CraftifAI Physical AI Hackathon — Official Problem Statement.docx
+
+# Large binaries that will be captured on the venue GPU
+evidence/*.mp4
+outputs/*.mp4
+pipegen_export/models/*.onnx
+pipegen_export/models/*.trt
+pipegen_export/*.log
