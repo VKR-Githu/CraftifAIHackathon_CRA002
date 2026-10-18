@@ -6,7 +6,7 @@
 **Team Code:** `2beabae8`
 **Team Size:** 5 / 6
 **Team Leader:** C Vamsi Krishna Reddy — vamsireddy0306@gmail.com — Discord: `vkr_boi`
-**GitHub repo:** https://github.com/VKR-Githu/SiteSense-Real-Time-Hazard-Zone-Intrusion-Detection-for-Industrial-Sites
+**GitHub repo:** https://github.com/VKR-Githu/CraftifAIHackathon_CRA002
 **Shortlisting form:** https://forms.gle/eJyeCKCG2UH757QZ8
 
 ---
@@ -90,11 +90,11 @@ Subscribers: site-siren controller, supervisor dashboard, PPE-audit logger, and 
 *Shortlisting submission notes these as deferred — the live-build evidence is generated on-site as mandated by the problem statement.*
 
 ## Repository
-**URL:** https://github.com/VKR-Githu/SiteSense-Real-Time-Hazard-Zone-Intrusion-Detection-for-Industrial-Sites
+**URL:** https://github.com/VKR-Githu/CraftifAIHackathon_CRA002
 
 **Contents:**
 ```
-SiteSense-Real-Time-Hazard-Zone-Intrusion-Detection-for-Industrial-Sites/
+CraftifAIHackathon_CRA002/
 ├── README.md
 ├── SUBMISSION_CHECKLIST.md        # this file
 ├── pipegen_export/
@@ -185,7 +185,7 @@ Industrial sites (construction, warehouses, manufacturing) already have cameras 
 We use CraftifAI PipeGen end-to-end to build a five-stage edge pipeline. (1) Requirement — we feed PipeGen a natural-language sentence: "Detect people in a construction-site video and raise an alert whenever a detected person's bounding box overlaps a predefined hazard zone polygon; log every event as JSON and publish an MQTT alert." (2) Pipeline IR — PipeGen emits the DeepStream graph: filesrc → nvuridecodebin → nvvidconv → nvinfer (yolov8n-person) → nvstreambb → zone-overlap analyzer → JSON metadata sink + MQTT sink + display. (3) Model — PipeGen selects yolov8n-person (COCO-pretrained, person class only) from the CraftifAI catalog. (4) Compiler — PipeGen builds an FP16 TensorRT engine and reports speed, power, and mAP. (5) Run — the generated run.sh launches the DeepStream app on a video file or RTSP stream, producing an annotated feed plus live JSON incident logs and MQTT alerts on topic `safety/site-01/hazard-zone`. Any site operator or downstream board (FirmGen ESP32 for the Closed Loop bonus) subscribes to the MQTT topic and receives intrusion events within 10 ms of detection.
 
 **GitHub repo:**
-`https://github.com/VKR-Githu/SiteSense-Real-Time-Hazard-Zone-Intrusion-Detection-for-Industrial-Sites`
+`https://github.com/VKR-Githu/CraftifAIHackathon_CRA002`
 
 **Bonuses pursued:**
 `Closed Loop (ESP32 beacon), Edge Optimization (INT8 on Jetson Orin Nano)`
