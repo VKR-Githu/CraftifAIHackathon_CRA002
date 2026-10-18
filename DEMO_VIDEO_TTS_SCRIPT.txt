@@ -1,0 +1,45 @@
+SITESENSE — DEMO VIDEO TEXT-TO-SPEECH SCRIPT
+Team Doomsday (2beabae8) · Embedded SF Hackathon · Track A PipeGen
+Total runtime: 2:00 · Total words: ~315 · Recommended TTS speed: 1.0x
+
+Paste each block into your TTS tool separately, export as MP3 per shot,
+then line them up in the video editor over the matching screen recording.
+
+============================================================
+SHOT 1 — 0:00 to 0:15 (Title card — README hero visible)
+============================================================
+Hi, this is Vamsi from Team Doomsday. We are submitting SiteSense to the Embedded S-F Hackathon, Track A, the Pipe-Gen track. This is a two minute architecture walk-through. The live pipeline run is scheduled on the venue G-P-U on hackathon day.
+
+============================================================
+SHOT 2 — 0:15 to 0:35 (Scroll README to "The Problem")
+============================================================
+Industrial sites already have cameras everywhere, but nobody watches every feed live. O-S-H-A data shows struck-by incidents are a top three cause of construction fatalities, and most happen inside a camera's field of view. Site safety officers today patrol a wall of monitors manually, and only notice a hazard zone intrusion after an incident.
+
+============================================================
+SHOT 3 — 0:35 to 0:55 (Open pipegen_export/requirement.txt in browser)
+============================================================
+We give Pipe-Gen one sentence. Detect people in a construction site video, raise an alert whenever a bounding box overlaps a predefined hazard zone polygon, log every event as J-S-O-N, and publish an M-Q-T-T alert. That sentence is our entire spec. There is no hand written Deep-Stream code.
+
+============================================================
+SHOT 4 — 0:55 to 1:20 (Open evidence/pipeline_ir.svg in browser)
+============================================================
+Here is the Pipeline I-R that Pipe-Gen generates from that sentence. Input file source. Preprocess to R-G-B and resize. Inference with yolo v8 n person at F-P-sixteen Tensor-R-T. Post-process to draw bounding boxes. Then the analyzer node we typed in, the zone overlap check against the crane swing polygon. Three outputs fan out: live display, J-S-O-N incident log, and M-Q-T-T publisher on safety slash site zero one slash hazard dash zone.
+
+============================================================
+SHOT 5 — 1:20 to 1:35 (Open outputs/incidents.sample.json in browser)
+============================================================
+Here is what the J-S-O-N incident log looks like when a worker steps in and out of the zone. Each event has a timestamp, camera I-D, frame number, class, confidence, bounding box, and dwell time in milliseconds. The M-Q-T-T message on the same event carries severity high and a siren flag that a downstream board can act on.
+
+============================================================
+SHOT 6 — 1:35 to 1:50 (Play 10 sec of CraftifAI tutorial video, cite on-screen)
+============================================================
+This is a screenshot from Craftif-A-I's own tutorial showing what the Run stage looks like. The video console with detections, the terminal log, and the events table filling up. On venue day, we will produce the same view with our hazard zone pipeline running on the site C-C-T-V clip.
+
+============================================================
+SHOT 7 — 1:50 to 2:00 (Back to README, scroll to Team Roster)
+============================================================
+Team Doomsday, code two be eight a b e eight. Track A, Pipe-Gen, targeting the Closed Loop and Edge Optimization bonuses. The repo is public at the link in the description. Thanks.
+
+============================================================
+END OF SCRIPT
+============================================================
